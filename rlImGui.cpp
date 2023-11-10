@@ -38,6 +38,8 @@
 #include <GLFW/glfw3.h>
 #endif
 
+#include <string>
+#include <cstdio>
 #include <math.h>
 #include <map>
 
@@ -428,7 +430,7 @@ void rlImGuiBeginInitImGui(struct igSetupOptions *opts)
     if (!opts)
         io.Fonts->AddFontDefault();
     else {
-        if (string(opts->font_path).size() > 0)
+        if (std::string(opts->font_path).size() > 0)
             io.Fonts->AddFontFromFileTTF(opts->font_path, opts->font_size_pixels);
     }
 }
@@ -483,7 +485,7 @@ void rlImGuiEnd()
 void rlImGuiShutdown()
 {
     if (!is_inited) {
-        return
+        return;
     }
 
 	ImGui::SetCurrentContext(GlobalContext);

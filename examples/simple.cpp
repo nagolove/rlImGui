@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 	SetConfigFlags(FLAG_MSAA_4X_HINT | FLAG_VSYNC_HINT);
 	InitWindow(screenWidth, screenHeight, "raylib-Extras [ImGui] example - simple ImGui Demo");
 	SetTargetFPS(144);
-	rlImGuiSetup(true);
+	rlImGuiSetup(NULL);
 
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key
