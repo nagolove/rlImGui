@@ -33,6 +33,7 @@
 // {CAUSTIC_PASTE_BEGIN}
 #include "raylib.h"
 #include <stdbool.h>
+#define NO_FONT_AWESOME
 // {CAUSTIC_PASTE_END}
 
 #ifndef NO_FONT_AWESOME
