@@ -41,11 +41,11 @@
 #define FONT_AWESOME_ICON_SIZE 11
 #endif
 
+// {CAUSTIC_PASTE_BEGIN}
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-// {CAUSTIC_PASTE_BEGIN}
 struct igSetupOptions {
     bool    dark;
     char    font_path[512];
@@ -182,8 +182,9 @@ bool rlImGuiImageButton(const char* name, const Texture* image);
 /// <returns>True if the button was clicked</returns>
 bool rlImGuiImageButtonSize(const char* name, const Texture* image, struct ImVec2 size);
 
-// {CAUSTIC_PASTE_END}
-
 #ifdef __cplusplus
 }
 #endif
+
+// {CAUSTIC_PASTE_END}
+
