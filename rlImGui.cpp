@@ -29,6 +29,7 @@
 **********************************************************************************************/
 #include "rlImGui.h"
 
+// {CAUSTIC_PASTE_BEGIN}
 #include "imgui_impl_raylib.h"
 
 #include "raylib.h"
@@ -736,3 +737,4 @@ bool ImGui_ImplRaylib_ProcessEvents()
 
     return true;
 }
+// {CAUSTIC_PASTE_END}
