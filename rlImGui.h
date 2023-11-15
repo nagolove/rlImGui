@@ -30,8 +30,10 @@
 
 #pragma once
 
+// {CAUSTIC_PASTE_BEGIN}
 #include "raylib.h"
 #include <stdbool.h>
+// {CAUSTIC_PASTE_END}
 
 #ifndef NO_FONT_AWESOME
 #include "extras/IconsFontAwesome6.h"
@@ -42,6 +44,7 @@
 extern "C" {
 #endif
 
+// {CAUSTIC_PASTE_BEGIN}
 struct igSetupOptions {
     bool    dark;
     char    font_path[512];
@@ -177,6 +180,8 @@ bool rlImGuiImageButton(const char* name, const Texture* image);
 /// <param name="size">The size of the button/param>
 /// <returns>True if the button was clicked</returns>
 bool rlImGuiImageButtonSize(const char* name, const Texture* image, struct ImVec2 size);
+
+// {CAUSTIC_PASTE_END}
 
 #ifdef __cplusplus
 }
