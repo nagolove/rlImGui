@@ -426,13 +426,16 @@ void rlImGuiBeginInitImGui(struct igSetupOptions *opts)
     SetupKeymap();
 
 	ImGuiIO& io = ImGui::GetIO();
-	io.Fonts->AddFontDefault();
+	//io.Fonts->AddFontDefault();
 
     if (!opts)
         io.Fonts->AddFontDefault();
     else {
         if (std::string(opts->font_path).size() > 0)
-            io.Fonts->AddFontFromFileTTF(opts->font_path, opts->font_size_pixels);
+            io.Fonts->AddFontFromFileTTF(
+                    opts->font_path, opts->font_size_pixels,
+                    NULL, opts->ranges
+            );
     }
 }
 
@@ -453,6 +456,7 @@ void rlImGuiSetup(struct igSetupOptions *opts)
         ImGui::StyleColorsLight();
 
     rlImGuiEndInitImGui();
+    is_inited = true;
 }
 
 void rlImGuiReloadFonts()

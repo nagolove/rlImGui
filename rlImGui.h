@@ -47,9 +47,10 @@ extern "C" {
 #endif
 
 struct igSetupOptions {
-    bool    dark;
-    char    font_path[512];
-    int     font_size_pixels;
+    bool            dark;
+    char            font_path[512];
+    int             font_size_pixels;
+    unsigned short  *ranges;
 };
 
 // High level API. This API is designed in the style of raylib and meant to work with reaylib code.
