@@ -494,6 +494,13 @@ void rlImGuiShutdown()
     }
 
 	ImGui::SetCurrentContext(GlobalContext);
+
+    ImGuiIO& io = ImGui::GetIO();
+    if (io.Fonts->TexID) {
+        MemFree(io.Fonts->TexID);
+        io.Fonts->TexID = NULL;
+    }
+
     ImGui_ImplRaylib_Shutdown();
 
     ImGui::DestroyContext();
