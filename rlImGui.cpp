@@ -29,6 +29,7 @@
 **********************************************************************************************/
 #include "rlImGui.h"
 
+// {CAUSTIC_PASTE_BEGIN}
 #include "imgui_impl_raylib.h"
 
 #include "raylib.h"
@@ -453,7 +454,7 @@ static void SetupGlobals(void)
     LastSuperPressed = false;
 }
 
-void rlImGuiBeginInitImGui(void)
+void rlImGuiBeginInitImGui(struct igSetupOptions *opts)
 {
     SetupGlobals();
     if (GlobalContext == nullptr)
@@ -475,19 +476,35 @@ void rlImGuiBeginInitImGui(void)
 #endif
 
     defaultConfig.PixelSnapH = true;
-    io.Fonts->AddFontDefault(&defaultConfig);
+    if (!opts)
+        io.Fonts->AddFontDefault(&defaultConfig);
+    else {
+        if (std::string(opts->font_path).size() > 0)
+            io.Fonts->AddFontFromFileTTF(
+                    opts->font_path, opts->font_size_pixels,
+                    NULL, opts->ranges
+            );
+    }
 }
 
-void rlImGuiSetup(bool dark)
-{
-    rlImGuiBeginInitImGui();
+bool is_inited = false;
 
-    if (dark)
+void rlImGuiSetup(struct igSetupOptions *opts)
+{
+    if (is_inited) {
+        printf("rlImGuiSetup(): already inited\n");
+        return;
+    }
+
+    rlImGuiBeginInitImGui(opts);
+
+    if (opts && opts->dark)
         ImGui::StyleColorsDark();
     else
         ImGui::StyleColorsLight();
 
     rlImGuiEndInitImGui();
+    is_inited = true;
 }
 
 void rlImGuiReloadFonts(void)
@@ -521,6 +538,8 @@ void rlImGuiEnd(void)
 
 void rlImGuiShutdown(void)
 {
+    if (!is_inited) {
+        return;
     if (GlobalContext == nullptr)
         return;
 
@@ -871,3 +890,4 @@ bool ImGui_ImplRaylib_ProcessEvents(void)
 
     return true;
 }
+// {CAUSTIC_PASTE_END}
