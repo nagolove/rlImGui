@@ -145,6 +145,8 @@ static void ImGuiNewFrame(float deltaTime)
     Vector2 resolutionScale = GetWindowScaleDPI();
 
 #ifndef PLATFORM_DRM
+
+#ifndef PLATFORM_WEB
     if (IsWindowFullscreen())
     {
         int monitor = GetCurrentMonitor();
@@ -156,6 +158,10 @@ static void ImGuiNewFrame(float deltaTime)
         io.DisplaySize.x = float(GetScreenWidth());
         io.DisplaySize.y = float(GetScreenHeight());
     }
+#else
+    io.DisplaySize.x = float(GetScreenWidth());
+    io.DisplaySize.y = float(GetScreenHeight());
+#endif
 
 #if !defined(__APPLE__)
     if (!IsWindowState(FLAG_WINDOW_HIGHDPI))
