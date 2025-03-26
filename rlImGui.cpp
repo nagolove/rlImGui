@@ -146,22 +146,8 @@ static void ImGuiNewFrame(float deltaTime)
 
 #ifndef PLATFORM_DRM
 
-#ifndef PLATFORM_WEB
-    if (IsWindowFullscreen())
-    {
-        int monitor = GetCurrentMonitor();
-        io.DisplaySize.x = float(GetMonitorWidth(monitor));
-        io.DisplaySize.y = float(GetMonitorHeight(monitor));
-    }
-    else
-    {
-        io.DisplaySize.x = float(GetScreenWidth());
-        io.DisplaySize.y = float(GetScreenHeight());
-    }
-#else
     io.DisplaySize.x = float(GetScreenWidth());
     io.DisplaySize.y = float(GetScreenHeight());
-#endif
 
 #if !defined(__APPLE__)
     if (!IsWindowState(FLAG_WINDOW_HIGHDPI))
