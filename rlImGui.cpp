@@ -37,6 +37,7 @@
 
 #include "imgui.h"
 
+#include <string>
 #include <math.h>
 #include <map>
 #include <limits>
