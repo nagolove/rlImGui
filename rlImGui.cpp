@@ -544,7 +544,7 @@ void rlImGuiEnd(void)
 
 void rlImGuiShutdown(void)
 {
-    if (!is_inited) {
+    if (!is_inited)
         return;
     if (GlobalContext == nullptr)
         return;
